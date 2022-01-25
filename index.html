@@ -5,22 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript Quiz</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <div class="quiz-box" id="quiz-box">
+    <div class="container" id="container">
         <div class="score" id="score">
-            <span id="user-score">0/10</span>
+            0/10
         </div>
         <div class="timer">
-            <span id="timer">75 seconds</span>
+            <span id="timer">75</span>
         </div>
         <div class="content" id="content">
-            <div id="question">QUESTION HERE?</div>
+            <div class="question" id="question">
+                QUESTION HERE?
+            </div>
             <div class="answers" id="answers">
                 <button class="btn1" id="btn1">answer 1</button>
                 <button class="btn2" id="btn2">answer 2</button>
                 <button class="btn3" id="btn3">answer 3</button>
                 <button class="btn4" id="btn4">answer 4</button>
+            </div>
+            <div class="right-wrong" id="right-wrong">
+                Correct or Wrong
             </div>
         </div>
     </div>    
