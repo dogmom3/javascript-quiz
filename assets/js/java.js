@@ -14,33 +14,40 @@ let questions = [
     {
         question: "Is Javascript difficult to learn?",
         answers: [
-            {btn1: "Yes",answer:false},
-            {btn2: "No",answer:false},
-            {btn3: "Hell yeah!",answer:false},
-            {btn4: "The worst!",answer:true}
+            {option:"Yes",answer:false},
+            {option:"No",answer:false},
+            {option:"Hell yeah!",answer:false},
+            {option:"The worst!",answer:true}
         ]
     },
     {
         question: "What day is it?",
         answers: [
-            {btn1: "Today",answer:true},
-            {btn2: "Tomorrow",answer:false},
-            {btn3: "Yesterday",answer:false},
-            {btn4: "Who knows?!",answer:false}
+            {option: "Today",answer:false},
+            {option: "Tomorrow",answer:false},
+            {option: "Yesterday",answer:false},
+            {option: "Who knows?!",answer:true}
         ]
     },
     {
         question: "When was my last shower?",
         answers: [
-            {btn1: "Yesterday",answer:false},
-            {btn2: "2 days ago",answer:false},
-            {btn3: "4 days ago",answer:false},
-            {btn4: "I have no idea",answer:true}
+            {option: "Yesterday",answer:false},
+            {option: "2 days ago",answer:false},
+            {option: "4 days ago",answer:false},
+            {option: "I have no idea",answer:true}
         ]
     }
 ]
+//not sure if this is correct
+btn1.addEventListener('click',false);
+btn2.addEventListener('click',false);
+btn3.addEventListener('click',false);
+btn4.addEventListener('click',true);
 
-btn1.addEventListener('click');
-btn2.addEventListener('click');
-btn3.addEventListener('click');
-btn4.addEventListener('click');
+function beginQuiz(){
+    currentQuestion = 0;
+    questionText.innerHTML = questions[currentQuestion].question;
+    
+    
+}

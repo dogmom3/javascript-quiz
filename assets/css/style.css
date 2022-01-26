@@ -1,5 +1,6 @@
 body {
-    background-color: teal;
+    background-image: linear-gradient(to bottom right, orange, magenta);
+    background-repeat: no-repeat;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     height: 100vh;
     width: 100vw;
@@ -9,7 +10,6 @@ body {
 }
 
 .container {
-    background-color: lightseagreen;
     color: black;
     display: flex;
     justify-content: center;
@@ -20,14 +20,14 @@ body {
     max-width: 80%;
     height: 75vh;
     border-style:double;
-    border-color:navy;
+    border-color:black;
     border-radius:10px;
 }
 
 .score {
     font-size: 30px;
     font-weight: bold;
-    color: navy;
+    color: black;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,7 +40,7 @@ body {
 .timer {
     font-size: 30px;
     font-weight: bold;
-    color: navy;
+    color: black;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -55,9 +55,9 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: paleturquoise;
+    background-color: lemonchiffon;
     border-style:double;
-    border-color: navy;
+    border-color: black;
     border-radius: 10px;
     width: 50vw;
     height: 50vh;
@@ -70,7 +70,7 @@ body {
     padding: 3vh;
     font-size: 25px;
     font-weight: bold;
-    color: navy;
+    color:black;
 }
 
 .answers {
@@ -98,7 +98,7 @@ color: white;
     align-items: center;
     margin-top: 1vh;
     margin-bottom: 1vh;
-    color:mediumblue;
+    color:darkmagenta;
     font-weight: bold;
 }
 
