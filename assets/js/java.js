@@ -1,10 +1,10 @@
 var userScore = document.getElementById('score');
 var timeCount = document.getElementById('timer');
 var questionText = document.getElementById('question');
-var answer1 = document.getElementById('btn1');
-var answer2 = document.getElementById('btn2');
-var answer3 = document.getElementById('btn3');
-var answer4 = document.getElementById('btn4');
+var btn1 = document.getElementById('btn1');
+var btn2 = document.getElementById('btn2');
+var btn3 = document.getElementById('btn3');
+var btn4 = document.getElementById('btn4');
 var checkAnswer = document.getElementById('right-wrong');
 
 let currentQuestion = 0;
@@ -40,7 +40,10 @@ let questions = [
     }
 ]
 //not sure if this is correct
-btn1.addEventListener('click',false);
+btn1.addEventListener('click',function(event){
+console.log(event.target.dataset.correct)
+
+});
 btn2.addEventListener('click',false);
 btn3.addEventListener('click',false);
 btn4.addEventListener('click',true);
@@ -48,6 +51,6 @@ btn4.addEventListener('click',true);
 function beginQuiz(){
     currentQuestion = 0;
     questionText.innerHTML = questions[currentQuestion].question;
-    
+    btn1.setAttribute("data-correct", questions[currentQuestion].answers[0].answer)
     
 }

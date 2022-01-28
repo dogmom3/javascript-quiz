@@ -1,5 +1,5 @@
 body {
-    background-image: linear-gradient(to bottom right, orange, magenta);
+    background-image: linear-gradient(to right, lime, yellow, orange, magenta, purple, aqua);
     background-repeat: no-repeat;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     height: 100vh;
@@ -55,7 +55,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: lemonchiffon;
+    background-color: lightgray;
     border-style:double;
     border-color: black;
     border-radius: 10px;
@@ -91,16 +91,6 @@ body {
 background-color: teal;
 color: white;
 } */
-
-.right-wrong {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1vh;
-    margin-bottom: 1vh;
-    color:darkmagenta;
-    font-weight: bold;
-}
 
 .hide {
     display: none;
