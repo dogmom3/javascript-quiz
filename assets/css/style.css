@@ -1,7 +1,11 @@
-body {
-    background-image: linear-gradient(to right, lime, yellow, orange, magenta, purple, aqua);
-    background-repeat: no-repeat;
+*{
+    margin:0;
+    padding:0;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+body {
+    background-image: linear-gradient(to top right, lime, yellow, orange, magenta, purple);
+    background-repeat: no-repeat;
     height: 100vh;
     width: 100vw;
     display: flex;
@@ -24,17 +28,11 @@ body {
     border-radius:10px;
 }
 
-.score {
-    font-size: 30px;
-    font-weight: bold;
-    color: black;
+.title{
     display: flex;
     justify-content: center;
-    align-items: center;
-    position: absolute;
     padding: 3vh;
-    top: 12vh;
-    left: 12.5vw;
+    font-size: 20px;
 }
 
 .timer {
@@ -47,10 +45,10 @@ body {
     position: absolute;
     padding: 3vh;
     top: 12vh;
-    right: 10vw;
+    right: 13vw;
 }
 
-.content {
+.quiz {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -83,15 +81,41 @@ body {
     margin: 1vh;
     border-radius: 5px;
     cursor: pointer;
-    /* background-color: white;
-    color: navy; */
+    border-style:double;
+    padding: 3px;
+  
 }
 
-/* .btn1:hover, .btn2:hover, .btn3:hover, .btn4:hover {
-background-color: teal;
+    /* hover effects over answer buttons */
+
+.btn1:hover, .btn2:hover, .btn3:hover {
+background-color: black;
 color: white;
-} */
+border-style:double;
+border-width: 5px;
+}
+.btn1:hover {
+border-color: lime;
+}
+.btn2:hover {
+border-color: orange;
+}
+.btn3:hover {
+border-color: purple;
+}
+
+
 
 .hide {
     display: none;
+}
+
+.submit-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: black;
+    margin-top: 20px;
 }
