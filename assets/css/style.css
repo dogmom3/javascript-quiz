@@ -13,7 +13,7 @@ body {
     align-items: center;
 }
 
-.container {
+#container {
     color: black;
     display: flex;
     justify-content: center;
@@ -28,14 +28,14 @@ body {
     border-radius:10px;
 }
 
-.title{
+#title{
     display: flex;
     justify-content: center;
     padding: 3vh;
     font-size: 20px;
 }
 
-.timer {
+#timer {
     font-size: 30px;
     font-weight: bold;
     color: black;
@@ -48,7 +48,7 @@ body {
     right: 13vw;
 }
 
-.quiz {
+#quiz {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -61,7 +61,7 @@ body {
     height: 50vh;
 }
  
-.question {
+#question {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -71,51 +71,26 @@ body {
     color:black;
 }
 
-.answers {
+#answers {
     display: flex;
     flex-direction: column;
 }
 
-.btn1, .btn2, .btn3, .btn4 {
+#btn {
     font-size: 15px;
     margin: 1vh;
     border-radius: 5px;
     cursor: pointer;
     border-style:double;
     padding: 3px;
-  
 }
 
-    /* hover effects over answer buttons */
-
-.btn1:hover, .btn2:hover, .btn3:hover {
+#btn:hover {
 background-color: black;
 color: white;
-border-style:double;
-border-width: 5px;
-}
-.btn1:hover {
-border-color: lime;
-}
-.btn2:hover {
-border-color: orange;
-}
-.btn3:hover {
-border-color: purple;
 }
 
-
-
+/* not sure why this would be neccessary. referenced a tutorial on codingninjas.com */
 .hide {
     display: none;
-}
-
-.submit-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 30px;
-    font-weight: bold;
-    color: black;
-    margin-top: 20px;
 }
