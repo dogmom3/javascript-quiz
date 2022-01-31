@@ -76,7 +76,7 @@ body {
     flex-direction: column;
 }
 
-#btn {
+/* .btn {
     font-size: 15px;
     margin: 1vh;
     border-radius: 5px;
@@ -85,12 +85,12 @@ body {
     padding: 3px;
 }
 
-#btn:hover {
+.btn:hover {
 background-color: black;
 color: white;
-}
+} */
 
-/* not sure why this would be neccessary. referenced a tutorial on codingninjas.com */
+/* not sure why this would be neccessary. referenced a tutorial on codingninjas.com
 .hide {
     display: none;
-}
+} */
