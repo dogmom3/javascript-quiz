@@ -4,9 +4,12 @@ var quizTimer = document.getElementById('timer');
 var quizContainer = document.getElementById('container');
 var questionText = document.getElementById('question');
 var answerText = document.getElementsByClassName('answers');
-var totalTime = document.getElementById('time-left');
+var answerCheck = document.getElementById('answer-check');
+var timeLeft = document.getElementById('time-left');
+
 let currentQuestion = 0;
-var score = 0
+var score = 0;
+let totalTime = 75;
 
 //questions and answers
 let questions = [
@@ -75,75 +78,83 @@ function checkAnswer(event) {
         totalTime -= 10;
         timeLeft.textContent = totalTime;
         answerCheck.textContent =
-            "Wrong! The correct answer was: " + questions[currentQuestion].answers;
+            'Wrong! The correct answer was: ' + questions[currentQuestion].answers;
     }
-
-    currentQuestion++;
+     currentQuestion++;
     if (currentQuestion < questions.length) {
-        nextQuestion();
+        showQuestion();
     } else {
         gameOver();
     }
 }
-startBtn.addEventListener('click', startQuiz);
 
-//function to begin the quiz, not sure about this part..
-function startQuiz() {
+function quizOver(){
+    alert('Quiz Over!')
+    alert('Score is ' + score);
+}
+
+//function call to display the questions
+showQuestion();
+
+
+//function call to begin the quiz
+startQuiz();
    
+
+
+
     
-    answerText.onclick = () => {
-        let ano = 0;
-        if (questions[currentQuestion].answers[ano].answer) {
-            if (score < 3) {
-                score++;
-            }
-        }
-        userScore.innerHTML = score;
-        if (currentQuestion < 2) {
-            next();
-        }
-    };
-}
+//     answerText.onclick = () => {
+//         let ano = 0;
+//         if (questions[currentQuestion].answers[ano].answer) {
+//             if (score < 3) {
+//                 score++;
+//             }
+//         }
+//         userScore.innerHTML = score;
+//         if (currentQuestion < 2) {
+//             next();
+//         }
+//     };
+// }
 
 
-function showAnswers(answers) {
-    option.answers.foreach(option =>{
+// function showAnswers(answers) {
+//     option.answers.foreach(option =>{
 
-    })
-}
-
-function gameOver(){
-    
-}
+//     })
+// }
 
 
-questionText.innerHTML = questions[currentQuestion].question;
-answerText.setAttribute("data-correct", questionText[currentQuestion].answers[0].answer)
 
-// event listeners for the answer button clicks
-answerText.addEventListener('click', function (event) {
-    console.log(event.target.dataset.correct)
-    if (event.target.dataset.correct === 'true') {
-        userScore = score + 1
-        currentQuestion++
-        console.log(currentQuestion, quizLength)
-        //if current question is < questions length then begin quiz
-        if (currentQuestion < quizLength) {
-            beginQuiz();
-        }
-        else {
-            //write gameover function that asks for conditions
-            alert('Game over! Your score is ' + score)
-        }
-    }
-    else {
-        currentQuestion++;
-        if (currentQuestion < quizLength) {
-            beginQuiz();
-        }
-        else {
-            //write gameover function that asks for conditions
-            alert('Game over ' + score)
-        }
-    }
-});
+
+// questionText.innerHTML = questions[currentQuestion].question;
+// answerText.setAttribute("data-correct", questionText[currentQuestion].answers[0].answer)
+
+// // event listeners for the answer button clicks
+// answerText.addEventListener('click', function (event) {
+//     console.log(event.target.dataset.correct)
+//     if (event.target.dataset.correct === 'true') {
+//         userScore = score + 1
+//         currentQuestion++
+//         console.log(currentQuestion, quizLength)
+//         //if current question is < questions length then begin quiz
+//         if (currentQuestion < quizLength) {
+//             beginQuiz();
+//         }
+//         else {
+//             //write gameover function that asks for conditions
+//             alert('Game over! Your score is ' + score)
+//         }
+//     }
+//     else {
+//         currentQuestion++;
+//         if (currentQuestion < quizLength) {
+//             beginQuiz();
+//         }
+//         else {
+//             //write gameover function that asks for conditions
+//             alert('Game over ' + score)
+//         }
+//     }
+// });
