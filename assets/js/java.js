@@ -1,47 +1,12 @@
 var startBtn = document.getElementById('start-btn')
 var userScore = document.getElementById('user-score');
 var quizTimer = document.getElementById('timer');
-var questionText = document.getElementById('question');
 var quizContainer = document.getElementById('container');
+var questionText = document.getElementById('question');
 var answerText = document.getElementsByClassName('answers');
-
+var totalTime = document.getElementById('time-left');
 let currentQuestion = 0;
 var score = 0
-
-startBtn.addEventListener('click', startQuiz);
-
-//function to begin the quiz, not sure about this part..
-function startQuiz() {
-   
-    
-    answerText.onclick = () => {
-        let ano = 0;
-        if (questions[currentQuestion].answers[ano].answer) {
-            if (score < 3) {
-                score++;
-            }
-        }
-        userScore.innerHTML = score;
-        if (currentQuestion < 2) {
-            next();
-        }
-    };
-}
-
-//function to display questions:
-function showQuestion(question) {
-    questionText.innerText = question.question
-    question.answers.forEach(answer => {
-        var button = document.createElement('button')
-        button.innerText = answer.innerText
-        button.classList.add('btn')
-        if (answer.correct) {
-            button.dataset.correct = answer.correct
-        }
-        button.addEventListener('click', checkAnswer)
-        answerButtonsElement.appenChild(button)
-    })
-}
 
 //questions and answers
 let questions = [
@@ -87,12 +52,25 @@ let questions = [
     }
 ];
 
-function checkAnswer(answer) {
-    if (
-        questions[currentQuestion].answers === questions[currentQuestion].option[answer]
-    ) {
-        correctAns++;
-        answerCheck.textContent = "correct";
+//function to display questions:
+function showQuestion() {
+    var question = questions[currentQuestion];
+    questionText.innerText = question.question;
+    answerText.innerHTML = '';
+    question.answers.forEach((answer) => {
+        var button = document.createElement('button');
+        button.innerText = answer.option;
+        button.classList.add('btn');
+        button.dataset.correct = answer.answer;
+        button.addEventListener('click', checkAnswer);
+        answerText.appenChild(button);
+    });
+}
+
+function checkAnswer(event) {
+    var question = questions[currentQuestion];
+    if (event.target.dataset.correct ==='true') {
+        score++;
     } else {
         totalTime -= 10;
         timeLeft.textContent = totalTime;
@@ -106,6 +84,32 @@ function checkAnswer(answer) {
     } else {
         gameOver();
     }
+}
+startBtn.addEventListener('click', startQuiz);
+
+//function to begin the quiz, not sure about this part..
+function startQuiz() {
+   
+    
+    answerText.onclick = () => {
+        let ano = 0;
+        if (questions[currentQuestion].answers[ano].answer) {
+            if (score < 3) {
+                score++;
+            }
+        }
+        userScore.innerHTML = score;
+        if (currentQuestion < 2) {
+            next();
+        }
+    };
+}
+
+
+function showAnswers(answers) {
+    option.answers.foreach(option =>{
+
+    })
 }
 
 function gameOver(){
