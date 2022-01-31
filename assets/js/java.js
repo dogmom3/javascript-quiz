@@ -1,7 +1,7 @@
 var userScore = document.getElementById('user-score');
 var quizTimer = document.getElementById('timer');
 var questionText = document.getElementById('question-text');
-var answer1 = document.getElementById('btn');
+var answerBtns = document.getElementsByClassName('btn');
 // var answer2 = document.getElementById('btn1');
 // var answer3 = document.getElementById('btn2');
 var quizContainer = document.getElementById('container');
@@ -94,7 +94,7 @@ function gameOver(){
 
 
 //event listeners for button clicks
-btn.addEventListener('click', btn);
+// btn.addEventListener('click', btn);
 // btn2.addEventListener('click', btn2);
 // btn3.addEventListener('click', btn3);
 
@@ -249,4 +249,4 @@ function beginQuiz() {
 //     btn1.setAttribute("data-correct", question[currentQuestion].answers[0].answer)
 //     btn2.setAttribute("data-correct", question[currentQuestion].answers[1].answer)
 //     btn3.setAttribute("data-correct", question[currentQuestion].answers[2].answer)
-//}
+}
