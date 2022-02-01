@@ -26,6 +26,7 @@ body {
     border-style:double;
     border-color:black;
     border-radius:10px;
+    border-width: 10px;
 }
 
 #title{
@@ -42,10 +43,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    padding: 3vh;
-    top: 12vh;
-    right: 13vw;
+    
 }
 
 #quiz {
@@ -66,7 +64,7 @@ body {
     justify-content: center;
     align-items: center;
     padding: 3vh;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: bold;
     color:black;
 }
@@ -76,11 +74,28 @@ body {
     flex-direction: column;
 }
 
+#view-high-scores {
+    color: purple;
+    font-weight: bold;
+}
+#start-score {
+    display:flex;
+    flex-direction: column;
+}
+.start-btn {
+font-size: 40px;
+border-style:double;
+border-color: black;
+border-width: 10px;
+border-radius: 15px;
+padding: 15px;
+background-color: aqua;
+cursor: pointer;
+}
+
 .show {
     display: block;
 }
-
-
 .hide {
     display: none;
 }

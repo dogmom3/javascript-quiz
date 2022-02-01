@@ -1,7 +1,8 @@
 var startBtn = document.getElementById('start-btn')
 var userScore = document.getElementById('user-score');
+var viewHighScores = document.getElementById('view-high-scores');
 var quizTimer = document.getElementById('timer');
-var quizContainer = document.getElementById('container');
+var containerDiv = document.getElementById('container');
 var questionText = document.getElementById('question');
 var answerText = document.getElementById('answers');
 var answerCheck = document.getElementById('answer-check');
@@ -48,7 +49,7 @@ let questions = [
         ]
     },
     {
-        question: "What code executes a function?",
+        question: "Which code executes a function?",
         answers: [
             { option: "start function!", answer: false },
             { option: "theFunction();", answer: true },
@@ -62,6 +63,8 @@ function showQuestion() {
     console.log('hit function');
     quizDiv.removeAttribute('class', 'hide')
     quizDiv.classList.add('show');
+    startBtn.removeAttribute('class', 'show')
+    startBtn.classList.add('hide');
     var question = questions[currentQuestion];
     questionText.innerText = question.question;
      answerText.innerHTML = '';
@@ -98,12 +101,14 @@ function checkAnswer(event) {
 }
 
 function quizOver(){
-    alert('Quiz Over!')
+    // dont want this alert. replace with score showing on final screen.
     alert('Score is ' + score);
     quizDiv.removeAttribute('class', 'show')
     quizDiv.classList.add('hide');
     initialDiv.removeAttribute('class', 'hide')
     initialDiv.classList.add('show');
+    viewHighScores.removeAttribute('class', 'hide')
+    viewHighScores.classList.add('show');
 }
 //function call to display the questions
 // showQuestion();

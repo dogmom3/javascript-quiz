@@ -14,31 +14,31 @@
         <div id="title">
             <h1>Javascript Quiz</h1>
         </div>
-        <div>
+        <div id='start-score'>
             <button class="start-btn" id="start-btn">Start</button>
-            <a href="#" id="view-high-score">View High Scores</a>
-            <div id="timer" class="col text-right">
-                <i class="far fa-clock"></i> Time: <span id="time-left">0</span>
-            </div>
-            <div id="timesUp" style="display: none">
-                Time's Up!
-            </div>
+            <a href="#" id="view-high-scores" class='hide'>View High Scores</a>
         </div>
         <div id="quiz" class='hide'>
             <div id="question">
                 question here
             </div>
-            <ul id="answers">
+            <div id="answers">
                 <!-- <li class='list-group-item'></li>
                 <li class='list-group-item'></li>
                 <li class='list-group-item'></li> -->
-            </ul>
+            </div>
             <div id='answer-check'></div>
         </div>
         <div id='initials' class='hide'>
             <p id='user-score'>Your score: </p>
             <label for="initials">Enter Initials:</label>
             <input id='user-initials' type="text" Your Initials />
+        </div>
+        <div id="timer" class="timer">
+            <i class="far fa-clock"></i> Time: <span id="time-left">60</span>
+            <div id="timesUp" style="display: none">
+                Time's Up!
+            </div>
         </div>
     </div>
     <script src="assets/js/java.js"></script>
