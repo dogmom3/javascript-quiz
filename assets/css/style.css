@@ -36,15 +36,16 @@ body {
     font-size: 20px;
 }
 
-#timer {
-    font-size: 30px;
-    font-weight: bold;
-    color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-}
+#start-btn {
+    font-size: 40px;
+    border-style:double;
+    border-color: black;
+    border-width: 10px;
+    border-radius: 15px;
+    padding: 15px;
+    background-color: aqua;
+    cursor: pointer;
+    }
 
 #quiz {
     /* display: flex; */
@@ -69,38 +70,43 @@ body {
     color:black;
 }
 
-#answr-btn {
-background-color: lime;
-}
-
 #answers {
     display: flex;
     flex-direction: column;
 }
 
-#user-score {
+/*how do i style the answers?
+#answr-btn {
+background-color: lime;
+}
 
+
+/* probably only need 1 of these 3, but need to get it functioning first.
+#score {
+    display: flex;
+    color: purple;
+    font-weight: bold;
+}
+
+#user-score {
+    color: purple;
+    font-weight: bold;
 }
 
 #view-high-scores {
     color: purple;
     font-weight: bold;
+} */
+
+#timer {
+    font-size: 30px;
+    font-weight: bold;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#start-score {
-    display:flex;
-    flex-direction: column;
-}
-.start-btn {
-font-size: 40px;
-border-style:double;
-border-color: black;
-border-width: 10px;
-border-radius: 15px;
-padding: 15px;
-background-color: aqua;
-cursor: pointer;
-}
 
 .show {
     display: block;
