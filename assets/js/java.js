@@ -12,11 +12,11 @@ var scoreDiv = document.getElementById('score');
 var userScore = document.getElementById('user-score');
 var viewHighScores = document.getElementById('view-high-scores');
 var quizTimer = document.getElementById('timer');
-var timeLeft = document.getElementById('time-left');
+var timeCounter = document.getElementById('time-counter');
 
 let currentQuestion = 0;
-var score = 0;
-let totalTime = 75;
+let score = 0;
+let totalTime = 50; // do i need this??
 
 //questions and answers
 let questions = [
@@ -81,6 +81,18 @@ function showQuestion() {
         answerText.append(button);
         button.addEventListener('click', checkAnswer);
     });
+
+    var timeLeft = 50
+    var downloadTimer = setInterval(function(){
+        if (timeLeft<=0){
+            clearInterval(downloadTimer);
+            document.getElementById('timer').innerHTML = 'Times up';
+        }else{
+            document.getElementById('timer').innerHTML = timeLeft + ' seconds remaining';
+        }
+        timeLeft -=1;
+    }, 1000);
+
 }
 
 startBtn.addEventListener('click', showQuestion);
@@ -111,7 +123,18 @@ function quizOver(){
     initialDiv.classList.add('show');
     scoreDiv.removeAttribute('class', 'hide')
     scoreDiv.classList.add('show');
-}
+    //how to display user score 
+    //function showScore(){
+    // userScore = score + 
+    }
+
+   
+    
+
+
+
+
+
 //function call to display the questions
 // showQuestion();
 
