@@ -104,9 +104,10 @@ function checkAnswer(event) {
         console.log('correct')
     } else {
         console.log('wrong')
-        // totalTime -= 10;
-        // timeLeft.textContent = totalTime;
-      //  answerCheck.textContent ='Wrong!';
+    //     totalTime -= 10;
+    //     timeLeft.textContent = totalTime;
+    //    answerCheck.textContent ='Wrong!'; 
+    // **adding the above lines back caused it to only move forward with a correct answer
     }
      currentQuestion++;
     if (currentQuestion < questions.length) {
