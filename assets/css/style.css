@@ -69,15 +69,24 @@ body {
     color:black;
 }
 
+#answr-btn {
+background-color: lime;
+}
+
 #answers {
     display: flex;
     flex-direction: column;
+}
+
+#user-score {
+
 }
 
 #view-high-scores {
     color: purple;
     font-weight: bold;
 }
+
 #start-score {
     display:flex;
     flex-direction: column;

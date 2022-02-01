@@ -1,14 +1,18 @@
+var containerDiv = document.getElementById('container');
 var startBtn = document.getElementById('start-btn')
+var quizDiv = document.getElementById('quiz');
+var questionText = document.getElementById('question');
+var answerText = document.getElementById('answers');
+var button = document.getElementById('answer-btn'); //do i need this to add css to answr btns?
+var answerCheck = document.getElementById('answer-check');
+var initialDiv = document.getElementById('initials');
+var intialLabel = document.getElementById('initial-label');
+var initialInput = document.getElementById('initial-input');
+var scoreDiv = document.getElementById('score');
 var userScore = document.getElementById('user-score');
 var viewHighScores = document.getElementById('view-high-scores');
 var quizTimer = document.getElementById('timer');
-var containerDiv = document.getElementById('container');
-var questionText = document.getElementById('question');
-var answerText = document.getElementById('answers');
-var answerCheck = document.getElementById('answer-check');
 var timeLeft = document.getElementById('time-left');
-var quizDiv = document.getElementById('quiz');
-var initialDiv = document.getElementById('initials');
 
 let currentQuestion = 0;
 var score = 0;
@@ -88,7 +92,7 @@ function checkAnswer(event) {
         console.log('correct')
     } else {
         console.log('wrong')
-       //  totalTime -= 10;
+        // totalTime -= 10;
         // timeLeft.textContent = totalTime;
       //  answerCheck.textContent ='Wrong!';
     }
@@ -101,14 +105,12 @@ function checkAnswer(event) {
 }
 
 function quizOver(){
-    // dont want this alert. replace with score showing on final screen.
-    alert('Score is ' + score);
     quizDiv.removeAttribute('class', 'show')
     quizDiv.classList.add('hide');
     initialDiv.removeAttribute('class', 'hide')
     initialDiv.classList.add('show');
-    viewHighScores.removeAttribute('class', 'hide')
-    viewHighScores.classList.add('show');
+    scoreDiv.removeAttribute('class', 'hide')
+    scoreDiv.classList.add('show');
 }
 //function call to display the questions
 // showQuestion();

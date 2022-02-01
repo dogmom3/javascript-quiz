@@ -10,37 +10,42 @@
 </head>
 
 <body>
+
     <div id="container">
+
         <div id="title">
             <h1>Javascript Quiz</h1>
         </div>
-        <div id='start-score'>
+
+        <div id='start'>
             <button class="start-btn" id="start-btn">Start</button>
-            <a href="#" id="view-high-scores" class='hide'>View High Scores</a>
         </div>
+
         <div id="quiz" class='hide'>
-            <div id="question">
-                question here
-            </div>
+            <div id="question"></div>
             <div id="answers">
-                <!-- <li class='list-group-item'></li>
-                <li class='list-group-item'></li>
-                <li class='list-group-item'></li> -->
+                <button id='answer-btn'></button>
             </div>
             <div id='answer-check'></div>
         </div>
+
         <div id='initials' class='hide'>
-            <p id='user-score'>Your score: </p>
-            <label for="initials">Enter Initials:</label>
-            <input id='user-initials' type="text" Your Initials />
+            <label for="initials" id='initial-label'>Enter Initials:</label>
+            <input id='initial-input' type="text" Your Initials />
         </div>
+
+        <div id='score' class='hide'>
+            <div id='user-score'>user score: 7</div>
+            <a href="#" id="view-high-scores">View High Scores</a>
+        </div>
+
         <div id="timer" class="timer">
-            <i class="far fa-clock"></i> Time: <span id="time-left">60</span>
-            <div id="timesUp" style="display: none">
-                Time's Up!
-            </div>
+            <!-- <i class="far fa-clock"></i>   is this line correct?? -->
+            <span id="time-left">Time Left: 60</span>
         </div>
+
     </div>
+
     <script src="assets/js/java.js"></script>
 </body>
 
