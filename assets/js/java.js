@@ -3,9 +3,11 @@ var userScore = document.getElementById('user-score');
 var quizTimer = document.getElementById('timer');
 var quizContainer = document.getElementById('container');
 var questionText = document.getElementById('question');
-var answerText = document.getElementsByClassName('answers');
+var answerText = document.getElementById('answers');
 var answerCheck = document.getElementById('answer-check');
 var timeLeft = document.getElementById('time-left');
+var quizDiv = document.getElementById('quiz');
+var initialDiv = document.getElementById('initials');
 
 let currentQuestion = 0;
 var score = 0;
@@ -46,59 +48,69 @@ let questions = [
         ]
     },
     {
-        question: "What does MVP stand for in reference to Javascript?",
+        question: "What code executes a function?",
         answers: [
-            { option: "Maximum View Port", answer: false },
-            { option: "Minimal Viable Product", answer: true },
-            { option: "Most Visited Page", answer: false }
+            { option: "start function!", answer: false },
+            { option: "theFunction();", answer: true },
+            { option: "{executeFunction{})", answer: false }
         ]
     }
 ];
 
 //function to display questions:
 function showQuestion() {
+    console.log('hit function');
+    quizDiv.removeAttribute('class', 'hide')
+    quizDiv.classList.add('show');
     var question = questions[currentQuestion];
     questionText.innerText = question.question;
-    answerText.innerHTML = '';
+     answerText.innerHTML = '';
     question.answers.forEach((answer) => {
+        console.log('answer', answer)
         var button = document.createElement('button');
         button.innerText = answer.option;
         button.classList.add('btn');
         button.dataset.correct = answer.answer;
+        answerText.append(button);
         button.addEventListener('click', checkAnswer);
-        answerText.appenChild(button);
     });
 }
+
+startBtn.addEventListener('click', showQuestion);
 
 function checkAnswer(event) {
     var question = questions[currentQuestion];
     if (event.target.dataset.correct ==='true') {
         score++;
+        console.log('correct')
     } else {
-        totalTime -= 10;
-        timeLeft.textContent = totalTime;
-        answerCheck.textContent =
-            'Wrong! The correct answer was: ' + questions[currentQuestion].answers;
+        console.log('wrong')
+       //  totalTime -= 10;
+        // timeLeft.textContent = totalTime;
+      //  answerCheck.textContent ='Wrong!';
     }
      currentQuestion++;
     if (currentQuestion < questions.length) {
         showQuestion();
     } else {
-        gameOver();
+        quizOver();
     }
 }
 
 function quizOver(){
     alert('Quiz Over!')
     alert('Score is ' + score);
+    quizDiv.removeAttribute('class', 'show')
+    quizDiv.classList.add('hide');
+    initialDiv.removeAttribute('class', 'hide')
+    initialDiv.classList.add('show');
 }
-
 //function call to display the questions
-showQuestion();
+// showQuestion();
 
 
 //function call to begin the quiz
-startQuiz();
+// startQuiz();
    
 
 
