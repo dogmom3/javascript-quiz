@@ -16,7 +16,7 @@ var timeCounter = document.getElementById('time-counter');
 
 let currentQuestion = 0;
 let score = 0;
-let totalTime = 50; // do i need this??
+let totalTime = 50; 
 
 //questions and answers
 let questions = [
@@ -83,12 +83,23 @@ function showQuestion() {
         button.addEventListener('click', checkAnswer);
     });
 }
-
 startBtn.addEventListener('click', showQuestion);
+startBtn.addEventListener('click', startTimer);
 
 function checkAnswer(event) {
     var question = questions[currentQuestion];
     if (event.target.dataset.correct ==='true') {
+        // function startTimer() {
+        //     setInterval(function () {
+        //         if (totalTime <= 0) {
+        //             clearInterval(downloadTimer);
+        //             document.getElementById('timer').innerHTML = 'Times up';
+        //         } else {
+        //             document.getElementById('timer').innerHTML = totalTime + ' seconds remaining';
+        //         }
+        //         totalTime -= 1;
+        //     }, 1000);
+        // }
         score++;
         console.log('correct')
     } else {
@@ -96,6 +107,7 @@ function checkAnswer(event) {
        totalTime -= 10;
         timeLeft.textContent = totalTime;
        answerCheck.textContent ='Wrong!'; 
+       //something is wrong above that isn't allowing to select wrong answers
    
     }
      currentQuestion++;
@@ -113,9 +125,12 @@ function quizOver(){
     initialDiv.classList.add('show');
     scoreDiv.removeAttribute('class', 'hide')
     scoreDiv.classList.add('show');
+
+
     //how to display user score 
-    //function showScore(){
-    // userScore = score + 
+    // function showScore(){
+    userScore.innerHTML = score;
+    quizTimer.style.display = 'none'
     }
 
    
