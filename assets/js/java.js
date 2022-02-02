@@ -89,25 +89,13 @@ startBtn.addEventListener('click', startTimer);
 function checkAnswer(event) {
     var question = questions[currentQuestion];
     if (event.target.dataset.correct ==='true') {
-        // function startTimer() {
-        //     setInterval(function () {
-        //         if (totalTime <= 0) {
-        //             clearInterval(downloadTimer);
-        //             document.getElementById('timer').innerHTML = 'Times up';
-        //         } else {
-        //             document.getElementById('timer').innerHTML = totalTime + ' seconds remaining';
-        //         }
-        //         totalTime -= 1;
-        //     }, 1000);
-        // }
         score++;
         console.log('correct')
     } else {
         console.log('wrong')
        totalTime -= 10;
-        timeLeft.textContent = totalTime;
+        quizTimer.textContent = totalTime;
        answerCheck.textContent ='Wrong!'; 
-       //something is wrong above that isn't allowing to select wrong answers
    
     }
      currentQuestion++;
@@ -127,81 +115,19 @@ function quizOver(){
     scoreDiv.classList.add('show');
 
 
-    //how to display user score 
-    // function showScore(){
     userScore.innerHTML = score;
     quizTimer.style.display = 'none'
     }
 
-   
-    
 
-
-
-
-
-//function call to display the questions
-// showQuestion();
-
-
-//function call to begin the quiz
-// startQuiz();
-   
-
-
-
-    
-//     answerText.onclick = () => {
-//         let ano = 0;
-//         if (questions[currentQuestion].answers[ano].answer) {
-//             if (score < 3) {
-//                 score++;
-//             }
-//         }
-//         userScore.innerHTML = score;
-//         if (currentQuestion < 2) {
-//             next();
-//         }
-//     };
-// }
-
-
-// function showAnswers(answers) {
-//     option.answers.foreach(option =>{
-
-//     })
-// }
-
-
-
-
-// questionText.innerHTML = questions[currentQuestion].question;
-// answerText.setAttribute("data-correct", questionText[currentQuestion].answers[0].answer)
-
-// // event listeners for the answer button clicks
-// answerText.addEventListener('click', function (event) {
-//     console.log(event.target.dataset.correct)
-//     if (event.target.dataset.correct === 'true') {
-//         userScore = score + 1
-//         currentQuestion++
-//         console.log(currentQuestion, quizLength)
-//         //if current question is < questions length then begin quiz
-//         if (currentQuestion < quizLength) {
-//             beginQuiz();
-//         }
-//         else {
-//             //write gameover function that asks for conditions
-//             alert('Game over! Your score is ' + score)
-//         }
-//     }
-//     else {
-//         currentQuestion++;
-//         if (currentQuestion < quizLength) {
-//             beginQuiz();
-//         }
-//         else {
-//             //write gameover function that asks for conditions
-//             alert('Game over ' + score)
-//         }
-//     }
-// });
+function startTimer() {
+    setInterval(function () {
+        if (totalTime <= 0) {
+            clearInterval(downloadTimer);
+            document.getElementById('timer').innerHTML = 'Times up';
+        } else {
+            document.getElementById('timer').innerHTML = totalTime + ' seconds remaining';
+        }
+        totalTime -= 1;
+    }, 1000);
+}
