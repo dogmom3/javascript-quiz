@@ -69,6 +69,7 @@ function showQuestion() {
     quizDiv.classList.add('show');
     startBtn.removeAttribute('class', 'show')
     startBtn.classList.add('hide');
+
     var question = questions[currentQuestion];
     questionText.innerText = question.question;
      answerText.innerHTML = '';
@@ -81,18 +82,6 @@ function showQuestion() {
         answerText.append(button);
         button.addEventListener('click', checkAnswer);
     });
-
-    var timeLeft = 50
-    var downloadTimer = setInterval(function(){
-        if (timeLeft<=0){
-            clearInterval(downloadTimer);
-            document.getElementById('timer').innerHTML = 'Times up';
-        }else{
-            document.getElementById('timer').innerHTML = timeLeft + ' seconds remaining';
-        }
-        timeLeft -=1;
-    }, 1000);
-
 }
 
 startBtn.addEventListener('click', showQuestion);
@@ -104,10 +93,10 @@ function checkAnswer(event) {
         console.log('correct')
     } else {
         console.log('wrong')
-    //     totalTime -= 10;
-    //     timeLeft.textContent = totalTime;
-    //    answerCheck.textContent ='Wrong!'; 
-    // **adding the above lines back caused it to only move forward with a correct answer
+       totalTime -= 10;
+        timeLeft.textContent = totalTime;
+       answerCheck.textContent ='Wrong!'; 
+   
     }
      currentQuestion++;
     if (currentQuestion < questions.length) {
