@@ -64,6 +64,7 @@ let questions = [
 
 //function to display questions:
 function showQuestion() {
+    answerCheck.textContent='';
     console.log('hit function');
     quizDiv.removeAttribute('class', 'hide')
     quizDiv.classList.add('show');
@@ -100,7 +101,7 @@ function checkAnswer(event) {
     }
      currentQuestion++;
     if (currentQuestion < questions.length) {
-        showQuestion();
+        setTimeout(() => {showQuestion()}, 1000)
     } else {
         quizOver();
     }
@@ -126,7 +127,7 @@ function startTimer() {
             clearInterval(downloadTimer);
             document.getElementById('timer').innerHTML = 'Times up';
         } else {
-            document.getElementById('timer').innerHTML = totalTime + ' seconds remaining';
+            document.getElementById('timer').innerHTML = totalTime;
         }
         totalTime -= 1;
     }, 1000);
