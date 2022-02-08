@@ -8,7 +8,7 @@
 
 * SO THAT I can be the best developer that I can be
 
-[javascriptQuiz](assets/images/js-quiz.png)
+![javascriptQuiz](assets/images/js-quiz.png)
 
 * Deployed application link can be viewed here:
  * https://dogmom3.github.io/javascript-quiz/

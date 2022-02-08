@@ -16,7 +16,7 @@ var timeCounter = document.getElementById('time-counter');
 
 let currentQuestion = 0;
 let score = 0;
-let totalTime = 50; 
+let totalTime = 10; 
 
 //questions and answers
 let questions = [
@@ -123,12 +123,37 @@ function quizOver(){
 
 function startTimer() {
     setInterval(function () {
-        if (totalTime <= 0) {
-            clearInterval(downloadTimer);
+        console.log('test timer: ', totalTime)
+        if (totalTime >= 0) {
+            clearInterval(totalTime);
+            quizOver()
             document.getElementById('timer').innerHTML = 'Times up';
         } else {
             document.getElementById('timer').innerHTML = totalTime;
-        }
+        
         totalTime -= 1;
+        }
     }, 1000);
 }
+
+    // use a variation of this to capture and display user initials on the page.
+
+// var createTaskHandler = function(event) {
+//     event.preventDefault();
+//     var taskNameInput = document.querySelector("input[name='task-name']").value;
+// //create list item
+// var listItemEl = document.createElement('li');
+// listItemEl.className = "task-item";
+
+// //create div to hold task info and add to list item
+// var taskInfoEl = document.createElement("div");
+// //give it a class name
+// taskInfoEl.className = "task-info";
+// // add HTML content to div
+// taskInfoEl.innerHTML = "<h3 class='task-name'>" + taskNameInput + "</h3><span class='task-type'>" + taskTypeInput + "</span>";
+
+// listItemEl.appendChild(taskInfoEl);
+
+// // add entire list item to list
+// tasksToDoEl.appendChild(listItemEl);
+// }
