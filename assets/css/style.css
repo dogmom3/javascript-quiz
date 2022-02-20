@@ -14,58 +14,55 @@ body {
 }
 
 #container {
-    color: black;
+    /* color: black; */
     display: flex;
     justify-content: center;
     flex-direction: column;
     text-align: center;
     align-items: center;
-    width: 75vw;
+    /* width: 75vw;
     max-width: 80%;
-    height: 75vh;
-    border-style:double;
+    height: 75vh; */
+    /* border-style:double;
     border-color:black;
     border-radius:10px;
-    border-width: 10px;
+    border-width: 20px; */
 }
 
 #title{
-    display: flex;
-    justify-content: center;
-    padding: 3vh;
-    font-size: 20px;
+    margin: 10px;
+    font-size: 50px;
 }
 
 #start-btn {
-    font-size: 40px;
+    font-size: 100px;
+    font-weight: bold;
     border-style:double;
     border-color: black;
-    border-width: 10px;
-    border-radius: 15px;
-    padding: 15px;
-    background-color: aqua;
+    border-width: 20px;
+    border-radius: 10px;
+    padding: 10px;
+    background-image: -webkit-radial-gradient(lightcyan, aqua, teal);
     cursor: pointer;
+    }
+#start-btn:hover {
+    font-size: 110px;
+    font-weight:bolder;
     }
 
 #quiz {
-    /* display: flex; */
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-color: lightgray;
+    background-image: -webkit-radial-gradient(white, grey);
     border-style:double;
     border-color: black;
     border-radius: 10px;
-    width: 50vw;
-    height: 50vh;
+    border-width: 20px;
 }
  
 #question {
     display: flex;
     justify-content: center;
-    align-items: center;
     padding: 3vh;
-    font-size: 20px;
+    font-size: 45px;
     font-weight: bold;
     color:black;
 }
@@ -73,38 +70,56 @@ body {
 #answers {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
-/*how do i style the answers?
-#answr-btn {
-background-color: lime;
-}
-
-
-/* probably only need 1 of these 3, but need to get it functioning first.
-#score {
-    display: flex;
-    color: purple;
+.btn {
+    background-image: -webkit-radial-gradient(white, grey);
+    border-style:double;
+    border-width: 10px;
+    border-radius: 10px;
+    border-color: black;
+    font-size:30px;
     font-weight: bold;
+    margin: 10px;
+    padding: 10px;
+    width: 25vw;
+    }
+
+#initial-label {
+font-size: 50px;
+font-weight: bold;
 }
 
-#user-score {
-    color: purple;
+#initial-input {
+    font-size: 40px;
+    border-width: 10px;
+    margin:10px;
+    text-transform: capitalize;
+}
+
+#submit-btn {
+    font-size: 50px;
     font-weight: bold;
+    border-style:double;
+    border-width: 10px;
+    border-color: black;
+    border-radius: 10px;
+    background-image: -webkit-radial-gradient(lightcyan, aqua, teal);
 }
 
 #view-high-scores {
-    color: purple;
-    font-weight: bold;
-} */
-
-#timer {
     font-size: 30px;
     font-weight: bold;
+    text-decoration-line: underline;
+    margin:10px;
+}
+
+#timer {
+    margin: 10px;
+    font-size: 40px;
+    font-weight: bold;
     color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 

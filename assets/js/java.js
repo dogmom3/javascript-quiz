@@ -5,18 +5,17 @@ var questionText = document.getElementById('question');
 var answerText = document.getElementById('answers');
 var button = document.getElementById('answer-btn'); //do i need this to add css to answr btns?
 var answerCheck = document.getElementById('answer-check');
-var initialDiv = document.getElementById('initials');
+var initialScoreDiv = document.getElementById('initials-score');
 var intialLabel = document.getElementById('initial-label');
 var initialInput = document.getElementById('initial-input');
-var scoreDiv = document.getElementById('score');
-var userScore = document.getElementById('user-score');
+var submitBtn = document.getElementById('submit-btn')
 var viewHighScores = document.getElementById('view-high-scores');
 var quizTimer = document.getElementById('timer');
 var timeCounter = document.getElementById('time-counter');
 
 let currentQuestion = 0;
 let score = 0;
-let totalTime = 10; 
+let totalTime = 50; 
 
 //questions and answers
 let questions = [
@@ -84,8 +83,46 @@ function showQuestion() {
         button.addEventListener('click', checkAnswer);
     });
 }
+
+function startTimer() {
+    setInterval(function () {
+        console.log('test timer: ', totalTime)
+        if (totalTime <= 0) {
+            clearInterval(totalTime);
+            quizOver()
+            document.getElementById('timer').innerHTML = 'Times up';
+        } else {
+            document.getElementById('timer').innerHTML = totalTime;
+        
+        totalTime -= 1;
+        }
+    }, 1000);
+}
+
+
 startBtn.addEventListener('click', showQuestion);
 startBtn.addEventListener('click', startTimer);
+
+
+//attempt to save intitialsto localStorage and display on page with score
+// var saveInitials = function (){
+//     localStorage.setItem("initialInput", JSON.stringify());
+//     };
+
+// submitBtn.addEventListener('click', function(event) {
+//     event.preventDefault()
+//     var userInput = initialInput.value
+
+//     var score = document.createElement("li")
+//     score.classList.add('userScore')
+//     score.appenChild(document.createTextNode(userInput))
+
+// viewHighScores.appenChild(score)
+// console.log(viewHighScores)
+// initialInput.value = '',
+// localStorage.setItem('initialInput', viewHighScores.innerHTML);
+// })
+
 
 function checkAnswer(event) {
     var question = questions[currentQuestion];
@@ -110,50 +147,9 @@ function checkAnswer(event) {
 function quizOver(){
     quizDiv.removeAttribute('class', 'show')
     quizDiv.classList.add('hide');
-    initialDiv.removeAttribute('class', 'hide')
-    initialDiv.classList.add('show');
-    scoreDiv.removeAttribute('class', 'hide')
-    scoreDiv.classList.add('show');
+    initialScoreDiv.removeAttribute('class', 'hide')
+    initialScoreDiv.classList.add('show');
 
-
-    userScore.innerHTML = score;
+    // userScore.innerHTML = score;
     quizTimer.style.display = 'none'
     }
-
-
-function startTimer() {
-    setInterval(function () {
-        console.log('test timer: ', totalTime)
-        if (totalTime >= 0) {
-            clearInterval(totalTime);
-            quizOver()
-            document.getElementById('timer').innerHTML = 'Times up';
-        } else {
-            document.getElementById('timer').innerHTML = totalTime;
-        
-        totalTime -= 1;
-        }
-    }, 1000);
-}
-
-    // use a variation of this to capture and display user initials on the page.
-
-// var createTaskHandler = function(event) {
-//     event.preventDefault();
-//     var taskNameInput = document.querySelector("input[name='task-name']").value;
-// //create list item
-// var listItemEl = document.createElement('li');
-// listItemEl.className = "task-item";
-
-// //create div to hold task info and add to list item
-// var taskInfoEl = document.createElement("div");
-// //give it a class name
-// taskInfoEl.className = "task-info";
-// // add HTML content to div
-// taskInfoEl.innerHTML = "<h3 class='task-name'>" + taskNameInput + "</h3><span class='task-type'>" + taskTypeInput + "</span>";
-
-// listItemEl.appendChild(taskInfoEl);
-
-// // add entire list item to list
-// tasksToDoEl.appendChild(listItemEl);
-// }

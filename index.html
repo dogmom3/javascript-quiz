@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,44 +7,30 @@
     <title>JavaScript Quiz</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-
 <body>
-
     <div id="container">
-
         <div id="title">
             <h1>Javascript Quiz</h1>
         </div>
-
         <div id='start'>
             <button class="start-btn" id="start-btn">Start</button>
         </div>
-
         <div id="quiz" class='hide'>
             <div id="question"></div>
             <div id="answers">
                 <button id='answer-btn'></button>
             </div>
             <div id='answer-check'></div>
+            <div id="timer" class="timer"></div>
         </div>
-
-        <div id='initials' class='hide'>
+        <div id='initials-score' class='hide'>
             <label for="initials" id='initial-label'>Enter Initials:</label>
-            <input id='initial-input' type="text" Your Initials />
-            <button id='submit-initials'>Submit</button>
+            <input id='initial-input' type="text"/>
+            <button id='submit-btn'>Submit</button>
+            <!-- <div id='user-score'>placeholder</div> -->
+            <ul id="view-high-scores">High Scores</ul>
         </div>
-
-        <div id='score' class='hide'>
-            <div id='user-score'>placeholder</div>
-            <a href="#" id="view-high-scores">View High Scores</a>
-        </div>
-
-        <div id="timer" class="timer">
-        </div>
-
     </div>
-
     <script src="assets/js/java.js"></script>
 </body>
-
 </html>
