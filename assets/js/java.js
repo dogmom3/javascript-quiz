@@ -86,7 +86,7 @@ function showQuestion() {
 
 function startTimer() {
     setInterval(function () {
-        console.log('test timer: ', totalTime)
+        // console.log('test timer: ', totalTime)
         if (totalTime <= 0) {
             clearInterval(totalTime);
             quizOver()
@@ -109,20 +109,38 @@ startBtn.addEventListener('click', startTimer);
 //     localStorage.setItem("initialInput", JSON.stringify());
 //     };
 
-// submitBtn.addEventListener('click', function(event) {
-//     event.preventDefault()
-//     var userInput = initialInput.value
+submitBtn.addEventListener('click', function(event) {
+    event.preventDefault()
+    var userInput = initialInput.value
+console.log(userInput)
+console.log(score)
 
-//     var score = document.createElement("li")
-//     score.classList.add('userScore')
-//     score.appenChild(document.createTextNode(userInput))
+var highScoreList = JSON.parse(localStorage.getItem('high-score-list')) || []
+
+let userScore = {initial: userInput, score}
+
+highScoreList.push(userScore)
+
+console.log(highScoreList)
+
 
 // viewHighScores.appenChild(score)
 // console.log(viewHighScores)
 // initialInput.value = '',
-// localStorage.setItem('initialInput', viewHighScores.innerHTML);
-// })
-
+localStorage.setItem('high-score-list', JSON.stringify(highScoreList));
+})
+function showHighScores() {
+    for (let i = 0; i < highScoreList.length; i++) {
+ 
+        var score = document.createElement("li")
+        score.classList.add('userScore')
+        var userName = highScoreList[i].initial
+        var scoreResult = highScoreList[i].score
+        score.textContent = userName + score
+        viewHighScores.append(score)
+        // score.appenChild(document.createTextNode(userInput))
+        }
+}
 
 function checkAnswer(event) {
     var question = questions[currentQuestion];
@@ -153,3 +171,5 @@ function quizOver(){
     // userScore.innerHTML = score;
     quizTimer.style.display = 'none'
     }
+
+    showHighScores()
