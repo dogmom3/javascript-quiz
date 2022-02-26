@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,10 +8,12 @@
     <title>JavaScript Quiz</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
     <div id="container">
         <div id="title">
             <h1>Javascript Quiz</h1>
+            <div id="timer" class="timer"></div>
         </div>
         <div id='start'>
             <button class="start-btn" id="start-btn">Start</button>
@@ -21,16 +24,22 @@
                 <button id='answer-btn'></button>
             </div>
             <div id='answer-check'></div>
-            <div id="timer" class="timer"></div>
+
         </div>
+
         <div id='initials-score' class='hide'>
-            <label for="initials" id='initial-label'>Enter Initials:</label>
-            <input id='initial-input' type="text"/>
-            <button id='submit-btn'>Submit</button>
-            <!-- <div id='user-score'>placeholder</div> -->
-            <ul id="view-high-scores">High Scores</ul>
+            <div id="input-score-container">
+                <div id="border">
+                    <label for="initials" id='initial-label'>Enter Initials:</label>
+                    <input id='initial-input' type="text" />
+                    <button id='submit-btn'>Submit</button>
+                </div>
+                <h2>High Score List</h2>
+                <ul id="view-high-scores"></ul>
+            </div>
         </div>
     </div>
     <script src="assets/js/java.js"></script>
 </body>
+
 </html>

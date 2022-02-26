@@ -1,9 +1,9 @@
 var containerDiv = document.getElementById('container');
-var startBtn = document.getElementById('start-btn')
+var startBtn = document.getElementById('start-btn');
 var quizDiv = document.getElementById('quiz');
 var questionText = document.getElementById('question');
 var answerText = document.getElementById('answers');
-var button = document.getElementById('answer-btn'); //do i need this to add css to answr btns?
+var button = document.getElementById('answer-btn');
 var answerCheck = document.getElementById('answer-check');
 var initialScoreDiv = document.getElementById('initials-score');
 var intialLabel = document.getElementById('initial-label');
@@ -15,7 +15,7 @@ var timeCounter = document.getElementById('time-counter');
 
 let currentQuestion = 0;
 let score = 0;
-let totalTime = 50; 
+let totalTime = 50;
 
 //questions and answers
 let questions = [
@@ -63,18 +63,16 @@ let questions = [
 
 //function to display questions:
 function showQuestion() {
-    answerCheck.textContent='';
-    console.log('hit function');
+    answerCheck.textContent = '';
     quizDiv.removeAttribute('class', 'hide')
     quizDiv.classList.add('show');
     startBtn.removeAttribute('class', 'show')
     startBtn.classList.add('hide');
 
     var question = questions[currentQuestion];
-    questionText.innerText = question.question;
-     answerText.innerHTML = '';
+    if (question.question) questionText.innerText = question.question;
+    answerText.innerHTML = '';
     question.answers.forEach((answer) => {
-        console.log('answer', answer)
         var button = document.createElement('button');
         button.innerText = answer.option;
         button.classList.add('btn');
@@ -85,91 +83,72 @@ function showQuestion() {
 }
 
 function startTimer() {
-    setInterval(function () {
-        // console.log('test timer: ', totalTime)
-        if (totalTime <= 0) {
-            clearInterval(totalTime);
-            quizOver()
-            document.getElementById('timer').innerHTML = 'Times up';
-        } else {
-            document.getElementById('timer').innerHTML = totalTime;
-        
-        totalTime -= 1;
-        }
-    }, 1000);
+    const myInterval = setInterval(
+        function () {
+            if (totalTime <= 0) {
+                document.getElementById('timer').innerHTML = 'Times up';
+            } else {
+                document.getElementById('timer').innerHTML = totalTime;
+                totalTime -= 1;
+            }
+        }, 1000);
+    if (totalTime <= 0) {
+        clearInterval(myInterval);
+        quizOver()
+    }
 }
-
 
 startBtn.addEventListener('click', showQuestion);
 startBtn.addEventListener('click', startTimer);
 
-
-//attempt to save intitialsto localStorage and display on page with score
-// var saveInitials = function (){
-//     localStorage.setItem("initialInput", JSON.stringify());
-//     };
-
-submitBtn.addEventListener('click', function(event) {
+submitBtn.addEventListener('click', function (event) {
     event.preventDefault()
     var userInput = initialInput.value
-console.log(userInput)
-console.log(score)
-
-var highScoreList = JSON.parse(localStorage.getItem('high-score-list')) || []
-
-let userScore = {initial: userInput, score}
-
-highScoreList.push(userScore)
-
-console.log(highScoreList)
-
-
-// viewHighScores.appenChild(score)
-// console.log(viewHighScores)
-// initialInput.value = '',
-localStorage.setItem('high-score-list', JSON.stringify(highScoreList));
+    let highScoreList = JSON.parse(localStorage.getItem('high-score-list')) || []
+    let userScore = { initial: userInput, score }
+    highScoreList.push(userScore)
+    localStorage.setItem('high-score-list', JSON.stringify(highScoreList));
+    console.log(highScoreList)
+    viewHighScores.innerHTML = ''
+    showHighScores()
 })
+
 function showHighScores() {
+    let highScoreList = JSON.parse(localStorage.getItem('high-score-list')) || []
     for (let i = 0; i < highScoreList.length; i++) {
- 
-        var score = document.createElement("li")
+        let score = document.createElement("li")
         score.classList.add('userScore')
-        var userName = highScoreList[i].initial
+        var userName = highScoreList[i].initial + ' '
         var scoreResult = highScoreList[i].score
-        score.textContent = userName + score
+        score.textContent = userName + scoreResult
         viewHighScores.append(score)
-        // score.appenChild(document.createTextNode(userInput))
-        }
+    } console.log(score)
 }
 
 function checkAnswer(event) {
     var question = questions[currentQuestion];
-    if (event.target.dataset.correct ==='true') {
+    if (event.target.dataset.correct === 'true') {
         score++;
         console.log('correct')
     } else {
         console.log('wrong')
-       totalTime -= 10;
+        totalTime -= 10;
         quizTimer.textContent = totalTime;
-       answerCheck.textContent ='Wrong!'; 
-   
+        answerCheck.textContent = 'Wrong!';
     }
-     currentQuestion++;
+    currentQuestion++;
     if (currentQuestion < questions.length) {
-        setTimeout(() => {showQuestion()}, 1000)
+        setTimeout(() => { showQuestion() }, 1000)
     } else {
         quizOver();
     }
 }
 
-function quizOver(){
+function quizOver() {
     quizDiv.removeAttribute('class', 'show')
     quizDiv.classList.add('hide');
     initialScoreDiv.removeAttribute('class', 'hide')
     initialScoreDiv.classList.add('show');
-
-    // userScore.innerHTML = score;
     quizTimer.style.display = 'none'
-    }
-
     showHighScores()
+}
